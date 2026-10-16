@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UMER Lab · Let's see what your English can do</title>
+<meta name="description" content="UMER Lab es un espacio individual de práctica de inglés para adultos y profesionales que quieren comunicarse con más confianza, fluidez y claridad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#158ADB;
+    --blue-deep:#0F6DB0;
+    --sky:#CCECF4;
+    --sky-soft:#E8F6FA;
+    --ink:#111418;
+    --muted:#4A5560;
+    --white:#fff;
+    --yellow:#FFD23F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Open Sans',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #e3eef3}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;letter-spacing:-.04em;font-size:1.35rem;color:var(--blue);text-decoration:none}
+  .btn{display:inline-block;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:13px 26px;border-radius:999px;transition:transform .15s,background .15s}
+  .btn:hover{background:var(--blue-deep);transform:translateY(-1px)}
+  .btn.small{padding:9px 20px;font-size:.92rem}
+  .btn.ghost{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+  .btn.ghost:hover{background:var(--blue);color:#fff}
+
+  /* HERO */
+  .hero{position:relative;background:var(--sky);overflow:hidden;text-align:center;padding:96px 0 104px}
+  .hero svg.mol{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hero .wrap{position:relative}
+  .title{display:inline-flex;align-items:flex-start;gap:6px}
+  .title h1{font-weight:800;letter-spacing:-.07em;font-size:clamp(3.6rem,13vw,8.6rem);line-height:.95;color:var(--blue)}
+  .title svg{width:clamp(52px,9.5vw,104px);margin-top:-14px;transform:translateX(-6px)}
+  .hero .tag{margin-top:26px;font-weight:800;letter-spacing:-.03em;font-size:clamp(1.1rem,3.2vw,2rem);text-transform:uppercase}
+  .hero p.sub{max-width:640px;margin:18px auto 34px;color:var(--muted);font-size:1.1rem}
+  .hero .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* SECCIONES */
+  section{padding:88px 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+  .eyebrow::before{content:"";width:22px;height:3px;background:var(--yellow);border-radius:2px}
+  h2{font-weight:800;letter-spacing:-.035em;line-height:1.08;font-size:clamp(2rem,5vw,3.2rem);margin:14px 0 18px}
+  .lead{font-size:1.15rem;color:var(--muted);max-width:660px}
+
+  .intro{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+  .quote{background:var(--sky-soft);border-left:6px solid var(--blue);padding:32px 30px;border-radius:0 18px 18px 0;font-size:1.3rem;font-weight:600;letter-spacing:-.02em;line-height:1.4}
+  .quote em{font-style:italic;font-weight:400;display:block;margin-top:14px;font-size:1rem;color:var(--muted)}
+
+  .steps{background:var(--sky-soft)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .card{background:#fff;border-radius:20px;padding:34px 28px;box-shadow:0 1px 0 #d5e9f0,0 12px 30px -18px rgba(21,138,219,.35)}
+  .num{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:1.2rem;margin-bottom:20px}
+  .card h3{font-weight:800;letter-spacing:-.02em;font-size:1.3rem;margin-bottom:4px}
+  .card .meta{display:inline-block;font-size:.82rem;font-weight:800;color:var(--blue);letter-spacing:.04em;margin-bottom:10px}
+  .card p{color:var(--muted)}
+
+  /* MEMBERSHIP */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .panel{background:var(--blue);color:#fff;border-radius:24px;padding:44px 38px;position:relative;overflow:hidden}
+  .panel small{letter-spacing:.22em;font-weight:800;text-transform:uppercase;font-size:.75rem;opacity:.85}
+  .panel .price{font-weight:800;letter-spacing:-.05em;font-size:clamp(2.6rem,6vw,3.6rem);line-height:1.05;margin:14px 0 6px}
+  .panel .alt{font-weight:600;font-size:1.25rem;opacity:.95;margin-bottom:18px}
+  .panel p{opacity:.92}
+  .panel .dot{position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12)}
+  .list{list-style:none;display:grid;gap:16px;margin-top:26px}
+  .list li{display:flex;gap:14px;align-items:flex-start;font-size:1.05rem}
+  .list li::before{content:"";flex:none;width:12px;height:12px;margin-top:9px;border-radius:3px;background:var(--blue)}
+  .small-note{margin-top:22px;font-size:.92rem;color:var(--muted)}
+
+  /* EXPERIENCE */
+  .exp{background:var(--sky-soft)}
+  .note{margin-top:26px;padding:22px 24px;background:#fff;border-left:6px solid var(--yellow);border-radius:0 16px 16px 0;color:var(--muted);font-size:1.05rem;max-width:760px}
+  .note b{color:var(--ink)}
+
+  .cta{background:var(--sky);text-align:center;position:relative;overflow:hidden}
+  .cta h2{margin-left:auto;margin-right:auto;max-width:700px}
+  .cta .lead{margin:0 auto 34px}
+  .cta .or{margin-top:18px;color:var(--muted);font-size:.98rem;display:none}
+  .cta .or a{color:var(--blue);font-weight:600}
+
+  footer{padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer b{color:var(--blue);letter-spacing:-.03em}
+
+  @media (max-width:820px){
+    .intro,.two{grid-template-columns:1fr;gap:34px}
+    .grid3{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .hero{padding:72px 0 80px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">UMER ENGLISH</a>
+    <a class="btn small" data-cta href="#contacto">Quiero empezar</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <!-- moléculas decorativas -->
+  <svg class="mol" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#9cc3d6" stroke-width="3" opacity=".5" stroke-linejoin="round">
+      <polygon points="90,70 150,35 210,70 210,140 150,175 90,140"/>
+      <line x1="210" y1="105" x2="250" y2="105"/>
+      <polygon points="40,430 90,402 140,430 140,488 90,516 40,488"/>
+      <line x1="140" y1="459" x2="190" y2="459"/>
+      <polygon points="990,60 1045,30 1100,60 1100,120 1045,150 990,120"/>
+      <line x1="1100" y1="90" x2="1150" y2="60"/>
+      <polygon points="1020,420 1080,385 1140,420 1140,490 1080,525 1020,490"/>
+      <line x1="1020" y1="455" x2="970" y2="455"/>
+    </g>
+    <g font-family="Open Sans,sans-serif" font-size="24" font-weight="600" fill="#9cc3d6" opacity=".8">
+      <text x="258" y="112">HO</text>
+      <text x="198" y="468">HO</text>
+      <text x="1158" y="66">NH</text>
+      <text x="962" y="462" text-anchor="end">OH</text>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <div class="title">
+      <h1>UMER LAB</h1>
+      <!-- tubo de ensayo + burbuja -->
+      <svg viewBox="-20 -14 170 280" style="overflow:visible" aria-hidden="true">
+        <defs>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9fff0"/><stop offset="1" stop-color="#bfe9cc"/></linearGradient>
+          <linearGradient id="liquid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fd35f"/><stop offset="1" stop-color="#1f9a3a"/></linearGradient>
+        </defs>
+        <g transform="rotate(16 65 125)">
+          <path d="M70 6 C98 2 122 16 120 38 C118 56 98 66 78 64 L62 76 L66 60 C50 54 42 44 44 32 C46 16 56 8 70 6 Z" fill="#158ADB"/>
+          <circle cx="78" cy="32" r="4" fill="#fff"/><circle cx="92" cy="32" r="4" fill="#fff"/><circle cx="106" cy="32" r="4" fill="#fff"/>
+          <path d="M44 92 L44 206 Q44 236 68 236 Q92 236 92 206 L92 92 Z" fill="url(#glass)" stroke="#2f8f4a" stroke-width="5"/>
+          <path d="M44 150 L44 206 Q44 236 68 236 Q92 236 92 206 L92 150 Z" fill="url(#liquid)"/>
+          <rect x="40" y="84" width="56" height="13" rx="6.5" fill="#2f8f4a"/>
+          <circle cx="62" cy="184" r="4" fill="#d9ffd9"/><circle cx="78" cy="200" r="3" fill="#d9ffd9"/>
+        </g>
+      </svg>
+    </div>
+    <p class="tag">Let’s see what your English can do!</p>
+    <p class="sub">Un espacio individual de práctica de inglés para comunicarte con más confianza, fluidez y claridad.</p>
+    <div class="actions">
+      <a class="btn" data-cta href="#contacto">Quiero empezar</a>
+      <a class="btn ghost" href="#como-funciona">Cómo funciona</a>
+    </div>
+  </div>
+</header>
+
+<section id="para-quien">
+  <div class="wrap intro">
+    <div>
+      <span class="eyebrow">¿Para quién es?</span>
+      <h2>Para quienes ya tienen una buena base y quieren ponerla en acción.</h2>
+      <p class="lead">Para quienes ya pueden expresar sus ideas en inglés y comprender materiales en el idioma, pero quieren seguir desarrollando sus habilidades para desenvolverse mejor en conversaciones, organizar sus respuestas y comunicarse con mayor confianza.</p>
+    </div>
+    <div class="quote">
+      Poner en acción el inglés que ya tenés.
+      <em>Un espacio para hablar, probar, resolver y volver a intentar.</em>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="como-funciona">
+  <div class="wrap">
+    <span class="eyebrow">¿Cómo funciona?</span>
+    <h2>Tres partes, un mismo objetivo: que hables más y mejor.</h2>
+    <div class="grid3">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>Speaking Sessions 1:1</h3>
+        <span class="meta">75 minutos · una vez por semana</span>
+        <p>Encuentros donde vos sos el protagonista. Compartimos ideas, exploramos temas que te interesan y resolvemos desafíos de comunicación, con feedback personalizado.</p>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <h3>Your Next Experiment</h3>
+        <span class="meta">Entre sesiones</span>
+        <p>Recibís una actividad para explorar, investigar o preparar algo relacionado con tus intereses. Podés trabajar con videos, imágenes u otros materiales en inglés. Lo que prepares será el punto de partida de nuestra próxima sesión.</p>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>Google Classroom</h3>
+        <span class="meta">Durante la semana</span>
+        <p>Nuestro espacio para acceder a las actividades, recibir feedback e interactuar durante la semana, compartiendo curiosidades y opiniones en inglés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="membresia">
+  <div class="wrap two">
+    <div>
+      <span class="eyebrow">Membership &amp; payment</span>
+      <h2>Una membresía organizada en ciclos.</h2>
+      <p class="lead">UMER Lab funciona como una membresía organizada en ciclos de 6 encuentros individuales, que se abonan por adelantado al comienzo de cada ciclo.</p>
+      <ul class="list">
+        <li>Al finalizar cada ciclo, podés decidir si querés continuar con el siguiente.</li>
+        <li>No hay compromiso de renovación.</li>
+      </ul>
+      <p class="small-note">Tené en cuenta que los pagos de los ciclos ya abonados no son reembolsables.</p>
+    </div>
+    <div class="panel">
+      <small>Inversión por ciclo</small>
+      <div class="price">$130.000 ARS</div>
+      <div class="alt">85 USD</div>
+      <p>6 encuentros individuales de 75 minutos.</p>
+      <div class="dot"></div>
+    </div>
+  </div>
+</section>
+
+<section class="exp" id="experiencia">
+  <div class="wrap">
+    <span class="eyebrow">Your UMER Lab Experience</span>
+    <h2>Hablar, experimentar, resolver y volver a intentar.</h2>
+    <p class="lead">Trabajamos en ciclos con propuestas que te invitan a poner tu inglés en juego.</p>
+    <p class="note"><b>UMER Lab requiere tu participación activa, dentro y fuera de las sesiones.</b> Yo diseño las propuestas y te acompaño; vos explorás, preparás, experimentás y ponés tu inglés en acción.</p>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="wrap">
+    <span class="eyebrow">Empezá</span>
+    <h2>¿Listo para ver qué puede hacer tu inglés?</h2>
+    <p class="lead">Contame un poco sobre vos y vemos juntas si UMER Lab es para vos.</p>
+    <a class="btn" data-cta href="#contacto" id="cta-main">Quiero empezar</a>
+    <p class="or" id="wpp-alt">¿Tenés dudas? <a data-wpp href="#contacto">Escribime por WhatsApp</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><b>UMER</b> English · Communication &amp; confidence coaching</div>
+</footer>
+
+<script>
+  /* ✏️ EDITÁ ESTO */
+  // Tu número con código de país, sin + ni espacios (ej: 5491112345678)
+  var WHATSAPP = "5491100000000";
+  var MENSAJE  = "Hola! Quiero info sobre UMER Lab";
+  // Link de tu formulario de inscripción. Si lo dejás vacío, todos los botones abren WhatsApp.
+  var FORM = "https://forms.gle/Twr1XanPLUuHN2rUA";
+
+  var wpp = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
+  var main = FORM || wpp;
+
+  document.querySelectorAll("[data-cta]").forEach(function(a){ a.href = main; a.target = "_blank"; a.rel = "noopener"; });
+  document.querySelectorAll("[data-wpp]").forEach(function(a){ a.href = wpp; a.target = "_blank"; a.rel = "noopener"; });
+  if (FORM) { document.getElementById("wpp-alt").style.display = "block"; }
+</script>
+</body>
+</html>
